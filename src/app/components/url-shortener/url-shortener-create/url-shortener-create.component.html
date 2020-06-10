@@ -1,0 +1,43 @@
+<mat-grid-list cols="2" rowHeight="200px">
+  <mat-grid-tile [colspan]="2" [rowspan]="1">
+    <mat-card class="card">
+      Convert new url
+      <mat-card-content>
+        <form #form="ngForm" novalidate>
+          <mat-form-field class="input-full-width">
+            <input
+              pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+              required
+              ngModel
+              matInput
+              placeholder="Url original"
+              name="originalUrl"
+              [(ngModel)]="url.originalUrl"
+            />
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          (click)="createShortUrl()"
+          [disabled]="!form.valid"
+          color="primary"
+        >
+          Save
+        </button>
+        <button mat-raised-button (click)="cancel()">
+          Cancel
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="2" [rowspan]="1" *ngIf="shortenedUrl">
+    <div class="shortenedUrl">
+      <h3>Your new link shortened</h3>
+      <a href="{{ shortenedUrl }}" target="_blank" rel="noopener noreferrer">
+        {{ shortenedUrl }}
+      </a>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

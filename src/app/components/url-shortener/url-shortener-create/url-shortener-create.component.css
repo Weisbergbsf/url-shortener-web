@@ -1,0 +1,13 @@
+.card {
+  max-width: 700px;
+  min-width: 40%;
+  width: 100%;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.shortenedUrl {
+  text-align: center;
+}
