@@ -2,7 +2,7 @@ import { environment } from "./../environments/environment";
 
 let URL_API = "http://localhost:8080/api/url"
 
-if (environment.production) {
+if (!environment.production) {
     URL_API = "https://url-shortenerr-api.herokuapp.com/api/url"
     console.log("Running in mode prod: ", URL_API)
 } else {
